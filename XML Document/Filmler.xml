@@ -1,0 +1,12 @@
+<filmler>
+  <film adi="Astronot 2" tur="Bilim kurgu" yil="2010" yonetmen="Egomonofist" imdb="4,2">
+    <oyuncular>
+      <oyuncu>oyuncu1</oyuncu>
+      <oyuncu>oyuncu2</oyuncu>
+      <oyuncu>oyuncu3</oyuncu>
+      <oyuncu>oyuncu4</oyuncu>
+      <oyuncu>oyuncu5</oyuncu>
+      <oyuncu>oyuncu6</oyuncu>
+    </oyuncular>
+  </film>
+</filmler>

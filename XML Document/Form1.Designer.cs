@@ -42,7 +42,7 @@ namespace XML_Document
             this.label5 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.oyuncu_textBox = new System.Windows.Forms.TextBox();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -50,6 +50,7 @@ namespace XML_Document
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.filmEkle_button = new System.Windows.Forms.Button();
+            this.dbToXML_button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,8 +74,19 @@ namespace XML_Document
             // 
             // filmTuru_comboBox
             // 
+            this.filmTuru_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.filmTuru_comboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.filmTuru_comboBox.FormattingEnabled = true;
+            this.filmTuru_comboBox.Items.AddRange(new object[] {
+            "Aksiyon",
+            "Gerilim",
+            "Macera",
+            "Komedi",
+            "Bilim kurgu",
+            "Romantik",
+            "Romantik komedi",
+            "Korku",
+            "Dram"});
             this.filmTuru_comboBox.Location = new System.Drawing.Point(234, 53);
             this.filmTuru_comboBox.Name = "filmTuru_comboBox";
             this.filmTuru_comboBox.Size = new System.Drawing.Size(187, 28);
@@ -102,6 +114,7 @@ namespace XML_Document
             this.oyuncuEkle_button.TabIndex = 7;
             this.oyuncuEkle_button.Text = "Oyuncu Ekle";
             this.oyuncuEkle_button.UseVisualStyleBackColor = false;
+            this.oyuncuEkle_button.Click += new System.EventHandler(this.oyuncuEkle_button_Click);
             // 
             // listBox1
             // 
@@ -132,7 +145,6 @@ namespace XML_Document
             this.yapimYili_label.Size = new System.Drawing.Size(78, 20);
             this.yapimYili_label.TabIndex = 0;
             this.yapimYili_label.Text = "Yapım Yılı";
-            this.yapimYili_label.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -143,7 +155,6 @@ namespace XML_Document
             this.label4.Size = new System.Drawing.Size(83, 20);
             this.label4.TabIndex = 0;
             this.label4.Text = "Yönetmen";
-            this.label4.Click += new System.EventHandler(this.label3_Click);
             // 
             // yonetmen_textBox
             // 
@@ -165,8 +176,14 @@ namespace XML_Document
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.DecimalPlaces = 1;
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.numericUpDown1.Location = new System.Drawing.Point(756, 54);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(94, 26);
             this.numericUpDown1.TabIndex = 4;
@@ -180,15 +197,14 @@ namespace XML_Document
             this.label1.Size = new System.Drawing.Size(90, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Oyuncu Adi";
-            this.label1.Click += new System.EventHandler(this.label3_Click);
             // 
-            // textBox1
+            // oyuncu_textBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.Location = new System.Drawing.Point(12, 124);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(217, 26);
-            this.textBox1.TabIndex = 6;
+            this.oyuncu_textBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.oyuncu_textBox.Location = new System.Drawing.Point(12, 124);
+            this.oyuncu_textBox.Name = "oyuncu_textBox";
+            this.oyuncu_textBox.Size = new System.Drawing.Size(217, 26);
+            this.oyuncu_textBox.TabIndex = 6;
             // 
             // listView1
             // 
@@ -245,6 +261,21 @@ namespace XML_Document
             this.filmEkle_button.TabIndex = 5;
             this.filmEkle_button.Text = "Film Ekle";
             this.filmEkle_button.UseVisualStyleBackColor = false;
+            this.filmEkle_button.Click += new System.EventHandler(this.filmEkle_button_Click);
+            // 
+            // dbToXML_button
+            // 
+            this.dbToXML_button.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.dbToXML_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.dbToXML_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.dbToXML_button.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.dbToXML_button.Location = new System.Drawing.Point(856, 87);
+            this.dbToXML_button.Name = "dbToXML_button";
+            this.dbToXML_button.Size = new System.Drawing.Size(108, 31);
+            this.dbToXML_button.TabIndex = 5;
+            this.dbToXML_button.Text = "dbToXML";
+            this.dbToXML_button.UseVisualStyleBackColor = false;
+            this.dbToXML_button.Click += new System.EventHandler(this.dbToXML_button_Click);
             // 
             // Form1
             // 
@@ -254,11 +285,12 @@ namespace XML_Document
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.dbToXML_button);
             this.Controls.Add(this.filmEkle_button);
             this.Controls.Add(this.oyuncuEkle_button);
             this.Controls.Add(this.yapimYili_dateTimePicker);
             this.Controls.Add(this.filmTuru_comboBox);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.oyuncu_textBox);
             this.Controls.Add(this.yonetmen_textBox);
             this.Controls.Add(this.filmAdi_textBox);
             this.Controls.Add(this.label1);
@@ -269,6 +301,7 @@ namespace XML_Document
             this.Controls.Add(this.filmAdi_label);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -290,7 +323,7 @@ namespace XML_Document
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox oyuncu_textBox;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -298,6 +331,7 @@ namespace XML_Document
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.Button filmEkle_button;
+        private System.Windows.Forms.Button dbToXML_button;
     }
 }
 
